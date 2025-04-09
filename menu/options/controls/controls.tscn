@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://chmsafdhygtym"]
+
+[ext_resource type="Script" uid="uid://dpikamuee7ybd" path="res://menu/options/controls/scripts/controls.gd" id="1_v7c1g"]
+
+[node name="Controls" type="VBoxContainer"]
+script = ExtResource("1_v7c1g")
+input_remap_button_file = "uid://biciq8w05f27g"
+input_actions = Array[String](["ui_select", "ui_accept", "ui_cancel", "ui_focus_next"])
+metadata/_tab_index = 1
+
+[node name="margin" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="order" type="VBoxContainer" parent="margin"]
+layout_mode = 2

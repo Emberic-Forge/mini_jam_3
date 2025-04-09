@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://biciq8w05f27g"]
+
+[ext_resource type="Script" uid="uid://d3ntgxgr7cy0m" path="res://menu/options/controls/scripts/remap_button.gd" id="1_xb0hi"]
+
+[node name="remap_button" type="HBoxContainer"]
+size_flags_horizontal = 3
+script = ExtResource("1_xb0hi")
+
+[node name="input_name" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Input Name"
+
+[node name="button" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+text = "Key"

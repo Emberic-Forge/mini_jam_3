@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0ogdipcuxfh8"]
+
+[ext_resource type="Script" uid="uid://chh4wru8udvfi" path="res://globals/loading_system/scripts/loading_system.gd" id="1_2e1dw"]
+[ext_resource type="PackedScene" uid="uid://cxjvx8fah5a1s" path="res://globals/loading_system/transitions/default_transition.tscn" id="3_48okr"]
+[ext_resource type="PackedScene" uid="uid://brp0pkkbkryjo" path="res://menu/loading_screen.tscn" id="4_d4puv"]
+
+[node name="loading_system" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_2e1dw")
+transition_scene = ExtResource("3_48okr")
+loading_scene = ExtResource("4_d4puv")

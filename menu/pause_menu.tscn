@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfrh4t3i4ed0p"]
+
+[ext_resource type="PackedScene" uid="uid://cwxycxpmoxmmb" path="res://menu/options/options_menu.tscn" id="1_5ijvr"]
+[ext_resource type="Script" uid="uid://dihrxoaus8xn7" path="res://menu/scripts/pause_menu.gd" id="1_cdtl2"]
+[ext_resource type="LabelSettings" uid="uid://cyqs1t656hh6s" path="res://settings/labels/title_label_settings.tres" id="2_lgp46"]
+[ext_resource type="Script" uid="uid://7hgxiepjce5d" path="res://menu/components/scripts/buttons/scene_loader.gd" id="2_vy7sn"]
+[ext_resource type="Material" uid="uid://bxrh406r8e7x8" path="res://menu/materials/blur_material.tres" id="3_gulp2"]
+[ext_resource type="Script" uid="uid://7if65bxcuux0" path="res://menu/components/scripts/buttons/back.gd" id="3_yvytn"]
+[ext_resource type="Script" uid="uid://cke1qt0xbafmk" path="res://menu/components/scripts/buttons/open_menu.gd" id="4_yvytn"]
+
+[node name="pause_menu" type="CanvasLayer"]
+process_mode = 3
+layer = 3
+script = ExtResource("1_cdtl2")
+
+[node name="options_menu" parent="." instance=ExtResource("1_5ijvr")]
+visible = false
+
+[node name="Panel" type="Panel" parent="."]
+material = ExtResource("3_gulp2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="order" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.5
+offset_top = -78.5
+offset_right = 41.5
+offset_bottom = 78.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="title" type="Label" parent="order"]
+texture_filter = 1
+layout_mode = 2
+text = "Paused"
+label_settings = ExtResource("2_lgp46")
+
+[node name="spacing" type="Control" parent="order"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="resume" type="Button" parent="order"]
+layout_mode = 2
+text = "Resume"
+script = ExtResource("3_yvytn")
+metadata/_custom_type_script = "uid://7if65bxcuux0"
+
+[node name="options" type="Button" parent="order" node_paths=PackedStringArray("menu_element_to_open")]
+layout_mode = 2
+text = "Options"
+script = ExtResource("4_yvytn")
+menu_element_to_open = NodePath("../../options_menu")
+metadata/_custom_type_script = "uid://cke1qt0xbafmk"
+
+[node name="to_main_menu" type="Button" parent="order"]
+layout_mode = 2
+text = "To Main Menu"
+script = ExtResource("2_vy7sn")
+scene_to_load = "uid://cvuj7m77rrgl1"
+metadata/_custom_type_script = "uid://7hgxiepjce5d"
+
+[editable path="options_menu"]

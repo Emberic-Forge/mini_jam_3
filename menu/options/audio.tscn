@@ -1,0 +1,69 @@
+[gd_scene load_steps=2 format=3 uid="uid://cghft0kmwwi7y"]
+
+[ext_resource type="Script" uid="uid://6lywy6x148wo" path="res://menu/components/scripts/volume_slider.gd" id="1_khl11"]
+
+[node name="Audio" type="VBoxContainer"]
+metadata/_tab_index = 0
+
+[node name="margin" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="music_settings" type="VBoxContainer" parent="margin"]
+layout_mode = 2
+
+[node name="volume_a" type="HBoxContainer" parent="margin/music_settings"]
+layout_mode = 2
+
+[node name="entry_name" type="Label" parent="margin/music_settings/volume_a"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+text = "Master"
+vertical_alignment = 1
+
+[node name="volume_slider" type="HSlider" parent="margin/music_settings/volume_a"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+script = ExtResource("1_khl11")
+metadata/_custom_type_script = "uid://6lywy6x148wo"
+
+[node name="volume_b" type="HBoxContainer" parent="margin/music_settings"]
+layout_mode = 2
+
+[node name="entry_name" type="Label" parent="margin/music_settings/volume_b"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+text = "Music"
+vertical_alignment = 1
+
+[node name="volume_slider" type="HSlider" parent="margin/music_settings/volume_b"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+script = ExtResource("1_khl11")
+metadata/_custom_type_script = "uid://6lywy6x148wo"
+
+[node name="volume_c" type="HBoxContainer" parent="margin/music_settings"]
+layout_mode = 2
+
+[node name="entry_name" type="Label" parent="margin/music_settings/volume_c"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+text = "SFX"
+vertical_alignment = 1
+
+[node name="volume_slider" type="HSlider" parent="margin/music_settings/volume_c"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+script = ExtResource("1_khl11")
+metadata/_custom_type_script = "uid://6lywy6x148wo"

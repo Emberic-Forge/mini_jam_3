@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnly6a6kmjkvi"]
+
+[ext_resource type="Script" uid="uid://cbi47cmshxqjm" path="res://globals/pause_system/scripts/pause_system.gd" id="1_x0aul"]
+
+[node name="pause_system" type="Node"]
+script = ExtResource("1_x0aul")
+pause_key = "ui_cancel"

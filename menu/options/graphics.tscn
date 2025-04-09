@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://pb5i2i22xbjx"]
+
+[node name="Graphics" type="VBoxContainer"]
+visible = false
+metadata/_tab_index = 2
