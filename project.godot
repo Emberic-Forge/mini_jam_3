@@ -21,6 +21,10 @@ LoadingSystem="*res://globals/loading_system/loading_system.tscn"
 KeyPersistence="*res://globals/key_persistence/scripts/key_persistence.gd"
 PauseSystem="*res://globals/pause_system/pause_system.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [editor_plugins]
 
 enabled=PackedStringArray()
