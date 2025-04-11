@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ig1dqmfnciup"]
 
-[ext_resource type="Script" uid="uid://dl8320r05shd4" path="res://game/checkpoint/checkpoint.gd" id="1_1mk51"]
+[ext_resource type="Script" uid="uid://dl8320r05shd4" path="res://game/checkpoints/checkpoint.gd" id="1_1mk51"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iglvo"]
 
