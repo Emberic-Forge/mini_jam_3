@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dj08y6binwr16"]
+[gd_scene load_steps=7 format=3 uid="uid://dj08y6binwr16"]
 
+[ext_resource type="Script" uid="uid://dxblakdp7ddbt" path="res://testing/level.gd" id="1_7vuk8"]
 [ext_resource type="PackedScene" uid="uid://bedwo7aclrpxj" path="res://game/hazards/hazard.tscn" id="1_yfref"]
+[ext_resource type="PackedScene" uid="uid://8v52kg4lndpe" path="res://game/collectibles/collectible.tscn" id="3_l1f23"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_3el38"]
 size = Vector3(30, 1, 30)
@@ -11,6 +13,7 @@ size = Vector3(30, 1, 30)
 [sub_resource type="BoxShape3D" id="BoxShape3D_7vuk8"]
 
 [node name="3DTest" type="Node3D"]
+script = ExtResource("1_7vuk8")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 metadata/_edit_group_ = true
@@ -25,12 +28,20 @@ shape = SubResource("BoxShape3D_yfref")
 [node name="Hazards" type="Node3D" parent="."]
 
 [node name="Hazard" parent="Hazards" instance=ExtResource("1_yfref")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.62751, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00151, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hazards/Hazard"]
 shape = SubResource("BoxShape3D_7vuk8")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7417, 9.08142)
+
+[node name="CollectiblesParent" type="Node3D" parent="."]
+
+[node name="Collectible" parent="CollectiblesParent" instance=ExtResource("3_l1f23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.87651, 0)
+
+[node name="Collectible2" parent="CollectiblesParent" instance=ExtResource("3_l1f23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.78932, -5.11072)
 
 [editable path="Hazards/Hazard"]
