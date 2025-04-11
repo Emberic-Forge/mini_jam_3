@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="PlayerSettings" load_steps=2 format=3 uid="uid://vd81yh7pwwv6"]
+
+[ext_resource type="Script" uid="uid://c8ypcwmjol0yq" path="res://player/scripts/player_settings.gd" id="1_ch3ay"]
+
+[resource]
+script = ExtResource("1_ch3ay")
+movement_speed = 5.0
+jump_height = 1.5
+ground_acceleration = 1.0
+ground_decceleration = 1.0
+glide_speed = 5.0
+glide_duration_in_seconds = 5.0
+glide_hover_amm = 0.0
+fall_multiplier = 2.5
+fall_detection_range = -0.1
+move_left_action = "move_left"
+move_forward_action = "move_up"
+move_right_action = "move_right"
+move_backward_action = "move_down"
+jump_action = "jump"
+mouse_sensitivity = 0.5
+camera_min_vertical_rotation = -30.0
+camera_max_vertical_rotation = 60.0
+metadata/_custom_type_script = "uid://c8ypcwmjol0yq"

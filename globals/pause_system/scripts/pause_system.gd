@@ -6,9 +6,11 @@ var element_stack : Array[Node]
 
 var starting_element_to_enter : Node
 var pause_game : bool
+var previous_mode
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	previous_mode = Input.mouse_mode
 
 func _process(_delta : float) -> void:
 	if Input.is_action_just_pressed(pause_key):
@@ -21,6 +23,8 @@ func _process(_delta : float) -> void:
 func enter_element(new_element : Node, hide_parent : bool = false) -> void:
 	if element_stack.is_empty() && pause_game:
 		get_tree().paused = true
+		previous_mode = Input.mouse_mode
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	else:
 		_update_parent(hide_parent)
 	new_element.visible = true
@@ -32,6 +36,7 @@ func exit_element() -> void:
 	element.visible = false
 	if element_stack.is_empty():
 		get_tree().paused = false
+		Input.mouse_mode = previous_mode
 
 func _update_parent(hide_elements) -> void:
 	if element_stack.is_empty():

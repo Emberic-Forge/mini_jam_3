@@ -64,7 +64,7 @@ metadata/_tab_index = 1
 [node name="Controls" parent="order/body/margin/tab" instance=ExtResource("5_h1dxb")]
 visible = false
 layout_mode = 2
-input_actions = Array[String](["test_a", "test_b", "test_c"])
+input_actions = Array[String](["move_left", "move_right", "move_up", "move_down", "jump"])
 metadata/_tab_index = 2
 
 [node name="bottom" type="HBoxContainer" parent="order"]
