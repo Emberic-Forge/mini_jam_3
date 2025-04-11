@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://colxbxt2731i1"]
+
+[ext_resource type="Script" uid="uid://crv1sl5l72kyq" path="res://game/end_goal/end_goal.gd" id="1_63h14"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_78wa8"]
+
+[node name="EndGoal" type="Area3D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_63h14")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_78wa8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://8v52kg4lndpe"]
+
+[ext_resource type="Script" uid="uid://beh56vkmlk3tu" path="res://game/collectibles/collectible.gd" id="1_4ebug"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hs3dc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ebug"]
+albedo_color = Color(0.984314, 0.454902, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uqjhl"]
+material = SubResource("StandardMaterial3D_4ebug")
+
+[node name="Collectible" type="Area3D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_4ebug")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_hs3dc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_uqjhl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

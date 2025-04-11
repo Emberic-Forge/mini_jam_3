@@ -24,7 +24,7 @@ func load_scene(target_scene : String, multi_threaded : bool = false) -> void:
 	add_child(transition_scene_ins)
 	transition_scene_ins.transition_in()
 
-	transition_scene_ins.animation_finished.connect(func(animation: String):
+	transition_scene_ins.animation_finished.connect(func(_animation: String):
 		ResourceLoader.load_threaded_request(scene_to_load, "", multi_threaded)
 		loading_screen = loading_scene.instantiate()
 		add_child(loading_screen)
