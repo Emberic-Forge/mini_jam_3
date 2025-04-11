@@ -22,6 +22,7 @@ KeyPersistence="*res://globals/key_persistence/scripts/key_persistence.gd"
 PauseSystem="*res://globals/pause_system/pause_system.tscn"
 SignalBus="*res://globals/signal_bus/signal_bus.gd"
 Global="*res://globals/global/global.gd"
+CheckpointSystem="*res://globals/checkpoint_system/checkpoint_system.gd"
 
 [display]
 
@@ -58,7 +59,6 @@ test_c={
 [layer_names]
 
 3d_physics/layer_1="World"
-3d_physics/layer_2="Player"
 
 [rendering]
 

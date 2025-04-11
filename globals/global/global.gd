@@ -1,3 +1,3 @@
 extends Node
 
-var last_checkpoint_position: Vector3
+var collectibles_count = 0
