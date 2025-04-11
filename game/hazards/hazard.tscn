@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bedwo7aclrpxj"]
+
+[ext_resource type="Script" uid="uid://b3f7ryxugoabt" path="res://game/hazards/hazard.gd" id="1_vs3s7"]
+
+[node name="Hazard" type="Area3D"]
+script = ExtResource("1_vs3s7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
