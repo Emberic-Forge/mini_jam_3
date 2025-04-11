@@ -4,7 +4,7 @@ class_name Transition extends AnimationPlayer
 @export var transition_out_anim : String
 
 func _ready() -> void:
-	animation_finished.connect(func(animation: String):
+	animation_finished.connect(func(_animation: String):
 		queue_free()
 		)
 
