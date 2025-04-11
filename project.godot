@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 LoadingSystem="*res://globals/loading_system/loading_system.tscn"
 KeyPersistence="*res://globals/key_persistence/scripts/key_persistence.gd"
 PauseSystem="*res://globals/pause_system/pause_system.tscn"
+SignalBus="*res://globals/signal_bus/signal_bus.gd"
 
 [display]
 
@@ -27,7 +28,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
 
 [input]
 
