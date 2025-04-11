@@ -16,6 +16,7 @@
 script = ExtResource("3_g1dw6")
 
 [node name="avatar" type="CharacterBody3D" parent="." node_paths=PackedStringArray("camera")]
+collision_layer = 2
 script = ExtResource("1_oul6g")
 player_settings = ExtResource("3_yw30f")
 camera = NodePath("../camera")
