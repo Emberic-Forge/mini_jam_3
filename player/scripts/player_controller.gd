@@ -10,7 +10,10 @@ extends CharacterBody3D
 @onready var camera_anchor : Node3D = $arm/camera_anchor
 
 var camera_input_direction : Vector2
+
 var can_glide_flag : bool
+var has_started_gliding : bool
+var is_currently_gliding : bool
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -18,7 +21,7 @@ func _ready() -> void:
 	camera.set_camera_anchor(camera_anchor)
 	camera.set_up_direction(up_direction)
 	camera.set_focus_point(self)
-	
+
 	SignalBus.death.connect(on_death)
 
 func _unhandled_input(event : InputEvent) -> void:
@@ -55,39 +58,42 @@ func calculate_local_input() -> Vector3:
 
 func handle_gravity(_delta : float) -> void:
 	if is_on_floor():
+		can_glide_flag = true
+		is_currently_gliding = false
 		return
 	var dot_prod = gravity_dir.dot(velocity.normalized())
 	var target_gravity = gravity
-	if dot_prod >= player_settings.fall_detection_range:
+	if Input.is_action_pressed(player_settings.jump_action) && dot_prod > 0.25 && can_glide_flag:
+		if has_started_gliding:
+			is_currently_gliding = true
+			velocity = Vector3.ZERO
+			get_tree().create_timer(player_settings.glide_duration_in_seconds).timeout.connect(func():
+				can_glide_flag = false
+				)
+			has_started_gliding = false
+		target_gravity = gravity * player_settings.glide_hover_amm
+		velocity.y = -target_gravity
+		print("Gliding: %f -> Velocity %s" % [target_gravity, str(velocity)])
+		return
+	elif dot_prod >= player_settings.fall_detection_range:
 		target_gravity *= player_settings.fall_multiplier
-
 	velocity += gravity_dir * target_gravity * _delta
 
 func handle_jump(_delta : float) -> void:
-	var dot_prod = gravity_dir.dot(velocity.normalized())
 	if Input.is_action_pressed(player_settings.jump_action) && is_on_floor():
-			var jump_velocity = player_settings.calculate_jump_velocity()
-			velocity += Vector3.UP * jump_velocity
-			can_glide_flag = true
-	elif Input.is_action_pressed(player_settings.jump_action) && dot_prod > 0.25:
-			if can_glide_flag:
-				velocity = Vector3.ZERO
-				can_glide_flag = false
-			var glide_gravity = gravity * player_settings.glide_hover_amm
-			velocity = gravity_dir * glide_gravity * _delta
-			print(velocity)
+		var jump_velocity = player_settings.calculate_jump_velocity()
+		velocity += Vector3.UP * jump_velocity
+		has_started_gliding = true
 
 
 func handle_movement() -> void:
 	var input_dir := calculate_local_input()
-	var target_velocity := input_dir * player_settings.movement_speed
-
-	var velocity_y = velocity.y
+	var target_velocity := input_dir * (player_settings.glide_speed if is_currently_gliding else player_settings.movement_speed)
+	target_velocity.y = velocity.y
 	if input_dir:
 		velocity = lerp(velocity, target_velocity, player_settings.ground_acceleration)
 	else:
-		velocity = lerp(velocity, Vector3.ZERO, player_settings.ground_decceleration)
-	velocity.y = velocity_y
+		velocity = lerp(velocity, Vector3(0, velocity.y, 0), player_settings.ground_decceleration)
 
 func on_death() -> void:
 	# TODO: Death animation & more
