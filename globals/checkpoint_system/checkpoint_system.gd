@@ -2,7 +2,7 @@ extends Node
 
 var collectibles: Array[Collectible]
 
-var last_checkpoint_position: Vector3
+var last_checkpoint_position: Vector3 = Vector3.ZERO
 
 # True if collectible has been collected.
 # String-Typed instead of Collectible-Typed because of weird errors.
@@ -30,6 +30,5 @@ func checkpoint_collected(checkpoint: Checkpoint) -> void:
 # Resets collectibles to their previous snapshot. Called when the Player dies.
 func reset_collectibles() -> void:
 	for collectible in collectibles:
-		if collectible.collected_flag:
-			if collectibles_status[collectible.name] == false:
-				collectible.un_collect()
+		if collectibles_status[collectible.name] == false:
+			collectible.un_collect()
