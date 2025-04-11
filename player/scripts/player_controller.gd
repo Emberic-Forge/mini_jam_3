@@ -18,6 +18,8 @@ func _ready() -> void:
 	camera.set_camera_anchor(camera_anchor)
 	camera.set_up_direction(up_direction)
 	camera.set_focus_point(self)
+	
+	SignalBus.death.connect(on_death)
 
 func _unhandled_input(event : InputEvent) -> void:
 	var is_camera_motion := (
@@ -86,3 +88,7 @@ func handle_movement() -> void:
 	else:
 		velocity = lerp(velocity, Vector3.ZERO, player_settings.ground_decceleration)
 	velocity.y = velocity_y
+
+func on_death() -> void:
+	# TODO: Death animation & more
+	global_position = CheckpointSystem.last_checkpoint_position
