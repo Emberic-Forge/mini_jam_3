@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://dup03vjpyl5w0"]
+
+[ext_resource type="Script" uid="uid://6fti23coeixd" path="res://player/scripts/player_controller.gd" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://bq3c5lmxgqy64" path="res://player/camera/scripts/camera_controller.gd" id="3_g1dw6"]
+[ext_resource type="Resource" uid="uid://vd81yh7pwwv6" path="res://player/settings/player.tres" id="3_yw30f"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rkbax"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rkbax"]
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_g1dw6"]
+
+[node name="player" type="Node3D"]
+
+[node name="camera" type="Camera3D" parent="."]
+script = ExtResource("3_g1dw6")
+
+[node name="avatar" type="CharacterBody3D" parent="." node_paths=PackedStringArray("camera")]
+script = ExtResource("1_oul6g")
+player_settings = ExtResource("3_yw30f")
+camera = NodePath("../camera")
+
+[node name="shape" type="CollisionShape3D" parent="avatar"]
+shape = SubResource("CapsuleShape3D_rkbax")
+
+[node name="temp" type="MeshInstance3D" parent="avatar"]
+mesh = SubResource("CapsuleMesh_rkbax")
+
+[node name="arm" type="SpringArm3D" parent="avatar"]
+shape = SubResource("SeparationRayShape3D_g1dw6")
+spring_length = 10.0
+
+[node name="camera_anchor" type="Node3D" parent="avatar/arm"]
