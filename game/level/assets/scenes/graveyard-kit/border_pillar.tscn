@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://vum7klprqg20"]
+
+[ext_resource type="PackedScene" uid="uid://bu3h4hd7n3dh8" path="res://game/level/assets/kenney_graveyard-kit/Models/GLB format/border-pillar.glb" id="1_tdqel"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pxhax"]
+size = Vector3(0.1, 0.793579, 0.1)
+
+[node name="border-pillar" type="Node3D"]
+
+[node name="border-pillar2" parent="." instance=ExtResource("1_tdqel")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="border-pillar2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="border-pillar2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.399929, 0)
+shape = SubResource("BoxShape3D_pxhax")

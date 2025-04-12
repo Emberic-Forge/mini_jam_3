@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dl1sjqg1b18at"]
+
+[ext_resource type="PackedScene" uid="uid://inae2q1q0i7e" path="res://game/level/assets/kenney_graveyard-kit/Models/GLB format/brick-wall-curve-small.glb" id="1_j7hu2"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_75mt6"]
+points = PackedVector3Array(0.319558, -1.66533e-16, -0.0101036, 0.492034, 0.706349, 0.507937, 0.333363, 0.706349, 0.507937, 0.333363, 0.706349, -0.015873, 0.507918, 0.119163, -0.015873, 0.5, 0.0218255, 0.48616, 0.320346, 0.0029549, 0.5, 0.492034, 0.706349, -0.015873, 0.5, 0.0218255, 0.00590329, 0.507918, 0.119163, 0.507937, 0.31746, 0.119163, 0.507937, 0.31746, 0.119163, -0.015873)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_f6pgs"]
+points = PackedVector3Array(0.349237, -0.00786659, -0.380893, 0.47459, 0.70136, -0.0190205, 0.333354, 0.706349, -0.0159165, 0.254018, 0.706349, -0.428522, 0.301614, -0.00786659, -0.0159165, 0.507937, -0.00786659, -0.0635449, 0.428545, 0.706349, -0.253928, 0.222278, -0.00786659, -0.206387, 0.222278, 0.706349, -0.238095, 0.222278, 0.103293, -0.460274, 0.460285, -0.00786659, -0.238095, 0.507937, 0.119163, -0.0159165, 0.476141, 0.706349, -0.127049, 0.238134, -0.00786659, -0.460274, 0.396805, 0.103293, -0.333308, 0.231641, 0.68294, -0.416039, 0.492025, 0.103293, -0.158758, 0.333354, 0.706349, -0.365017, 0.333354, 0.103293, -0.396769, 0.301614, 0.103293, -0.0159165, 0.444401, 0.103293, -0.269804, 0.269874, 0.103293, -0.444398, 0.507937, 0.103293, -0.0635449, 0.495333, 0.0236445, -0.0355215, 0.222278, 0.119163, -0.206387, 0.365093, 0.706349, -0.333308, 0.396805, -0.00786659, -0.333308, 0.492025, -0.00786659, -0.158758, 0.460285, 0.103293, -0.238095, 0.460285, 0.706349, -0.174634, 0.238134, 0.103293, -0.460274, 0.269874, -0.00786659, -0.444398)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wwy78"]
+points = PackedVector3Array(0.0317662, 0.119163, -0.507937, 0.222202, 0.119163, -0.222278, 0.222202, 0.706349, -0.254018, 0.222202, -0.00786659, -0.460285, 0.0158932, -0.00786659, -0.301614, 0.0171784, 0.7019, -0.474757, 0.206329, 0.706349, -0.444401, 0.0158932, 0.706349, -0.333354, 0.222202, -0.00786659, -0.222278, 0.0635123, -0.00786659, -0.507937, 0.126964, 0.706349, -0.476141, 0.0158932, 0.119163, -0.507937, 0.15871, 0.103293, -0.492025, 0.206329, 0.119163, -0.222278, 0.206329, 0.706349, -0.254018, 0.0238921, 0.0198246, -0.496861, 0.213844, 0.677416, -0.423405, 0.0158932, 0.103293, -0.301614, 0.222202, 0.119163, -0.460285, 0.0635123, 0.103293, -0.507937, 0.15871, -0.00786659, -0.492025, 0.174583, 0.706349, -0.460285, 0.206329, -0.00786659, -0.222278)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_abbj2"]
+points = PackedVector3Array(0.015873, 0.706349, -0.333363, -0.48616, 0.0218255, -0.5, -0.5, 0.0029549, -0.320346, -0.507937, 0.706349, -0.492034, -0.00590329, 0.0218255, -0.5, 0.0101036, 0, -0.319558, -0.507937, 0.706349, -0.333363, 0.015873, 0.706349, -0.492034, -0.507937, 0.119163, -0.507918, 0.015873, 0.119163, -0.507918, -0.507937, 0.119163, -0.31746, 0.015873, 0.119163, -0.31746)
+
+[node name="brick-wall-curve-small" type="Node3D"]
+
+[node name="brick-wall-curve-small2" parent="." instance=ExtResource("1_j7hu2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00324464, 0, 0.00646555)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="brick-wall-curve-small2/brick-wall-curve-small" index="0"]
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="brick-wall-curve-small2/brick-wall-curve-small/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00212955, 0.0014897, -0.00181222)
+shape = SubResource("ConvexPolygonShape3D_75mt6")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="brick-wall-curve-small2/brick-wall-curve-small/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00212955, 0.0014897, -0.00181222)
+shape = SubResource("ConvexPolygonShape3D_f6pgs")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="brick-wall-curve-small2/brick-wall-curve-small/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00212955, 0.0014897, -0.00181222)
+shape = SubResource("ConvexPolygonShape3D_wwy78")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="brick-wall-curve-small2/brick-wall-curve-small/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00212955, 0.0014897, -0.00181222)
+shape = SubResource("ConvexPolygonShape3D_abbj2")
+
+[editable path="brick-wall-curve-small2"]
