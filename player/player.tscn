@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://6fti23coeixd" path="res://player/scripts/player_controller.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://bq3c5lmxgqy64" path="res://player/camera/scripts/camera_controller.gd" id="3_g1dw6"]
-[ext_resource type="Resource" uid="uid://vd81yh7pwwv6" path="res://player/settings/player.tres" id="3_yw30f"]
+[ext_resource type="Resource" uid="uid://vutcgaq7tvj0" path="res://player/settings/player.tres" id="3_yw30f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rkbax"]
 

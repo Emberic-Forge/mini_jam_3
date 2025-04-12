@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://cy5v66tivsswu"]
+[gd_scene load_steps=13 format=3 uid="uid://cy5v66tivsswu"]
 
+[ext_resource type="PackedScene" uid="uid://dup03vjpyl5w0" path="res://player/player.tscn" id="1_3gmvx"]
 [ext_resource type="Script" uid="uid://keriv7x1j30r" path="res://testing/scripts/feature_gym.gd" id="1_ivdn3"]
 [ext_resource type="PackedScene" uid="uid://cfrh4t3i4ed0p" path="res://menu/pause_menu.tscn" id="3_vmymm"]
 [ext_resource type="PackedScene" uid="uid://8v52kg4lndpe" path="res://game/collectibles/collectible.tscn" id="4_vmymm"]
@@ -40,6 +41,8 @@ shadow_enabled = true
 
 [node name="env" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ivdn3")
+
+[node name="player" parent="." instance=ExtResource("1_3gmvx")]
 
 [node name="pause_menu" parent="." instance=ExtResource("3_vmymm")]
 
