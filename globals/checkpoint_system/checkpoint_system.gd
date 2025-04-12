@@ -1,8 +1,14 @@
 extends Node
 
-var collectibles: Array[Collectible]
-
 var last_checkpoint_position: Vector3 = Vector3.ZERO
+
+var collectible_count: int = 0:
+	set(value):
+		collectible_count = value
+		print("test")
+		SignalBus.collectible_count_changed.emit()
+var collectible_max: int
+var collectibles: Array[Collectible]
 
 # True if collectible has been collected.
 # String-Typed instead of Collectible-Typed because of weird errors.
@@ -15,11 +21,13 @@ func init_system(collectibles_parent: Node) -> void:
 		collectibles.append(child)
 	for collectible in collectibles:
 		collectibles_status[collectible.name] = false
+	collectible_max = collectibles.size()
+	SignalBus.collectible_count_changed.emit()
 
 
 # Called when a checkpoint is collected.
 func checkpoint_collected(checkpoint: Checkpoint) -> void:
-	#Update location for respawning.
+	# Update location for respawning.
 	last_checkpoint_position = checkpoint.global_position
 
 	# Update the status of collectibles.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cy5v66tivsswu"]
+[gd_scene load_steps=13 format=3 uid="uid://cy5v66tivsswu"]
 
 [ext_resource type="PackedScene" uid="uid://dup03vjpyl5w0" path="res://player/player.tscn" id="1_3gmvx"]
 [ext_resource type="Script" uid="uid://keriv7x1j30r" path="res://testing/scripts/feature_gym.gd" id="1_ivdn3"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://8v52kg4lndpe" path="res://game/collectibles/collectible.tscn" id="4_vmymm"]
 [ext_resource type="PackedScene" uid="uid://ig1dqmfnciup" path="res://game/checkpoints/checkpoint.tscn" id="5_vntb0"]
 [ext_resource type="PackedScene" uid="uid://bedwo7aclrpxj" path="res://game/hazards/hazard.tscn" id="6_6ujj0"]
+[ext_resource type="PackedScene" uid="uid://clxr7qsv31hsl" path="res://hud/hud.tscn" id="7_6ujj0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3gmvx"]
 
@@ -81,3 +82,5 @@ shape = SubResource("BoxShape3D_smvkj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Hazard"]
 mesh = SubResource("BoxMesh_vntb0")
+
+[node name="HUD" parent="." instance=ExtResource("7_6ujj0")]
