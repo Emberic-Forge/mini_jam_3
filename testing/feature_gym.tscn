@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://cy5v66tivsswu"]
+[gd_scene load_steps=13 format=3 uid="uid://cy5v66tivsswu"]
 
+[ext_resource type="PackedScene" uid="uid://dup03vjpyl5w0" path="res://player/player.tscn" id="1_3gmvx"]
 [ext_resource type="Script" uid="uid://keriv7x1j30r" path="res://testing/scripts/feature_gym.gd" id="1_ivdn3"]
 [ext_resource type="PackedScene" uid="uid://cfrh4t3i4ed0p" path="res://menu/pause_menu.tscn" id="3_vmymm"]
 [ext_resource type="PackedScene" uid="uid://8v52kg4lndpe" path="res://game/collectibles/collectible.tscn" id="4_vmymm"]
@@ -41,6 +42,8 @@ shadow_enabled = true
 [node name="env" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ivdn3")
 
+[node name="player" parent="." instance=ExtResource("1_3gmvx")]
+
 [node name="pause_menu" parent="." instance=ExtResource("3_vmymm")]
 
 [node name="Checkpoint" parent="." instance=ExtResource("5_vntb0")]
@@ -49,22 +52,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.51417)
 [node name="collectibles" type="Node3D" parent="."]
 
 [node name="Collectible" parent="collectibles" instance=ExtResource("4_vmymm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28538, -1.23618, 4.03683)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28538, -0.303169, 4.03683)
 
 [node name="Collectible2" parent="collectibles" instance=ExtResource("4_vmymm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.84956, -1.23618, 0.918159)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.84956, 0.0539235, 0.918159)
 
 [node name="Collectible3" parent="collectibles" instance=ExtResource("4_vmymm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.06108, -1.23618, -7.95909)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.06108, -0.14425, -7.95909)
 
 [node name="Collectible4" parent="collectibles" instance=ExtResource("4_vmymm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11792, -1.23618, -6.828)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11792, -0.401312, -6.828)
 
 [node name="Collectible5" parent="collectibles" instance=ExtResource("4_vmymm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.77413, -1.23618, 0.760153)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.77413, -0.610768, 0.760153)
 
 [node name="Collectible6" parent="collectibles" instance=ExtResource("4_vmymm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.42159, -1.23618, 4.33067)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.42159, -0.525818, 4.33067)
 
 [node name="Node3D" type="Node3D" parent="."]
 

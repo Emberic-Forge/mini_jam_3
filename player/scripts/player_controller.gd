@@ -78,10 +78,12 @@ func handle_gravity(_delta : float) -> void:
 			has_started_gliding = false
 		target_gravity = gravity * player_settings.glide_hover_amm
 		velocity.y = -target_gravity
+		glide_timer.paused = false
 		print("Gliding: %f -> Velocity %s" % [target_gravity, str(velocity)])
 		return
 	elif dot_prod >= player_settings.fall_detection_range:
 		target_gravity *= player_settings.fall_multiplier
+		glide_timer.paused = true
 	velocity += gravity_dir * target_gravity * _delta
 
 func handle_jump(_delta : float) -> void:

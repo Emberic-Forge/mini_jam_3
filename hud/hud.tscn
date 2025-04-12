@@ -1,22 +1,36 @@
 [gd_scene load_steps=3 format=3 uid="uid://clxr7qsv31hsl"]
 
 [ext_resource type="Script" uid="uid://c0uv0ih6nn4v6" path="res://hud/hud.gd" id="1_6ca3a"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fefj0"]
+[ext_resource type="Texture2D" uid="uid://b3vbnwo06yxuo" path="res://game/collectibles/tree_sap.png" id="2_2gk58"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_6ca3a")
 
-[node name="CollectibleCounter" type="HBoxContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/separation = 8
+[node name="Panel" type="Panel" parent="."]
+offset_right = 149.0
+offset_bottom = 58.0
 
-[node name="Icon" type="TextureRect" parent="CollectibleCounter"]
+[node name="CollectibleCounter" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="Padding" type="ColorRect" parent="Panel/CollectibleCounter"]
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Icon" type="TextureRect" parent="Panel/CollectibleCounter"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_fefj0")
+texture = ExtResource("2_2gk58")
+expand_mode = 1
+stretch_mode = 6
 
-[node name="Count" type="Label" parent="CollectibleCounter"]
+[node name="Count" type="Label" parent="Panel/CollectibleCounter"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "0/0"

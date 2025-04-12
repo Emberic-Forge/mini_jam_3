@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var collectible_label = $CollectibleCounter/Count
+@onready var collectible_label = $Panel/CollectibleCounter/Count
 
 func _ready() -> void:
 	SignalBus.collectible_count_changed.connect(on_collectible_count_changed)
