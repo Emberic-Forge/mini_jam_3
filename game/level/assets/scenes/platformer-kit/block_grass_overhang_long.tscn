@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpea3drgofb0a"]
+
+[ext_resource type="PackedScene" uid="uid://c5v6rgxneygwl" path="res://game/level/assets/kenney_platformer-kit/Models/GLB format/block-grass-overhang-long.glb" id="1_pjvt2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x36xw"]
+size = Vector3(2, 1, 1)
+
+[node name="block-grass-overhang-long" type="Node3D"]
+
+[node name="block-grass-overhang-long2" parent="." instance=ExtResource("1_pjvt2")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="block-grass-overhang-long2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block-grass-overhang-long2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_x36xw")

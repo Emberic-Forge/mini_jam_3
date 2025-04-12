@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1jntafehkj7b"]
+
+[ext_resource type="PackedScene" uid="uid://d2s1c6h6bs2yb" path="res://game/level/assets/kenney_graveyard-kit/Models/GLB format/altar-stone.glb" id="1_8olhd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d7odi"]
+size = Vector3(0.984375, 0.477539, 0.605469)
+
+[node name="altar-stone" type="Node3D"]
+
+[node name="altar-stone2" parent="." instance=ExtResource("1_8olhd")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="altar-stone2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="altar-stone2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.221904, 0)
+shape = SubResource("BoxShape3D_d7odi")

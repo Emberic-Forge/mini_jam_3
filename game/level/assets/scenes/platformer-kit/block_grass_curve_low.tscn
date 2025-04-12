@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://n2hycg04ydeh"]
+
+[ext_resource type="PackedScene" uid="uid://tqemw7kkeogw" path="res://game/level/assets/kenney_platformer-kit/Models/GLB format/block-grass-curve-low.glb" id="1_lajx4"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_onbv2"]
+points = PackedVector3Array(-0.862177, 0, -0.5, -1, 0, -0.400059, -0.801096, 0.209671, -0.400059, -0.736492, 0.13239, -0.5, 0.861981, 0, -0.5, -1, 0, 0.399961, -0.801096, 0.209671, 0.399961, -0.559123, 0.368001, -0.400059, -0.514096, 0.277946, -0.5, 0.736296, 0.13239, -0.5, 1, 0, -0.400059, -0.862177, 0, 0.5, -0.736492, 0.13239, 0.5, -0.514096, 0.277946, 0.5, -0.559123, 0.368001, 0.399961, -0.287392, 0.466523, -0.400059, -0.264096, 0.36854, -0.5, 0.800901, 0.209671, -0.400059, 0.5139, 0.277946, -0.5, 1, 0, 0.399961, 0.861981, 0, 0.5, -0.264096, 0.36854, 0.5, -0.287392, 0.466523, 0.399961, -0.000195742, 0.5, -0.400059, -0.000195742, 0.399276, -0.5, 0.558927, 0.368001, -0.400059, 0.800901, 0.209671, 0.399961, 0.2639, 0.36854, -0.5, 0.736296, 0.13239, 0.5, -0.000195742, 0.399276, 0.5, -0.000195742, 0.5, 0.399961, 0.287001, 0.466523, -0.400059, 0.558927, 0.368001, 0.399961, 0.5139, 0.277946, 0.5, 0.2639, 0.36854, 0.5, 0.287001, 0.466523, 0.399961)
+
+[node name="block-grass-curve-low" type="Node3D"]
+
+[node name="block-grass-curve-low2" parent="." instance=ExtResource("1_lajx4")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="block-grass-curve-low2/block-grass-curve-low" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block-grass-curve-low2/block-grass-curve-low/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_onbv2")
+
+[editable path="block-grass-curve-low2"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvda6y8mg06d8"]
+
+[ext_resource type="PackedScene" uid="uid://cfqtagad44aci" path="res://game/level/assets/kenney_platformer-kit/Models/GLB format/block-grass-corner.glb" id="1_3q8ik"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0s3tl"]
+points = PackedVector3Array(-0.1609, 0.0113693, 0.45054, -0.242458, 0.881866, -0.517324, 0.516973, 0.897811, -0.323057, -0.339009, 0.994387, 0.46816, -0.403815, 0.0094599, -0.387723, 0.422754, 0.00623937, -0.406455, -0.516473, 0.881241, 0.290491, -0.406455, 0.00623937, 0.422754, -0.405035, 0.996219, -0.388895, 0.429738, 0.987543, -0.111399, 0.4255, 0.021434, -0.1103, -0.125623, 0.871267, 0.471383, 0.27523, 0.995907, -0.469504, -0.470402, 0.00733915, -0.227069, -0.164628, 0, -0.477483, 0.290406, 0.881263, -0.516502, -0.517324, 0.881866, -0.242458, -0.354949, 0.881188, 0.5164, -0.468006, 0.00985926, 0.27425, 0.471566, 0.871411, -0.125771, 0.274332, 0.00989473, -0.467972, -0.43672, 0.882142, -0.43672, 0.481221, 0.862978, -0.433079, 0.471263, 0.00653997, -0.324967, -0.469527, 0.995931, 0.275142, -0.144571, 0.992149, 0.449923, -0.433079, 0.862978, 0.481221, -0.110167, 0.0215846, 0.425367, -0.324967, 0.00653997, 0.471263, 0.468181, 0.994409, -0.338923, -0.163254, 1, -0.473498, 0.45054, 0.0113693, -0.1609)
+
+[node name="block-grass-corner" type="Node3D"]
+
+[node name="block-grass-corner2" parent="." instance=ExtResource("1_3q8ik")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="block-grass-corner2/block-grass-corner" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block-grass-corner2/block-grass-corner/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_0s3tl")
+
+[editable path="block-grass-corner2"]
