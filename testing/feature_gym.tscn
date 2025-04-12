@@ -26,6 +26,7 @@ script = ExtResource("1_ivdn3")
 collectibles_parent = NodePath("collectibles")
 
 [node name="player" parent="." instance=ExtResource("1_3gmvx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.868076, 0)
 
 [node name="floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.16325, 0)

@@ -9,6 +9,9 @@ extends CharacterBody3D
 @onready var camera_base : Node3D = $arm
 @onready var camera_anchor : Node3D = $arm/camera_anchor
 
+@onready var glide_bar : ProgressBar = $SubViewport/GlideBar
+@onready var glide_timer : Timer = $GlideTimer
+
 var camera_input_direction : Vector2
 
 var can_glide_flag : bool
@@ -21,6 +24,8 @@ func _ready() -> void:
 	camera.set_camera_anchor(camera_anchor)
 	camera.set_up_direction(up_direction)
 	camera.set_focus_point(self)
+	
+	glide_timer.wait_time = player_settings.glide_duration_in_seconds
 
 	SignalBus.death.connect(on_death)
 
@@ -48,6 +53,7 @@ func _physics_process(_delta : float) -> void:
 	handle_jump(_delta)
 	handle_movement()
 	move_and_slide()
+	update_glide_bar()
 
 
 func calculate_local_input() -> Vector3:
@@ -67,9 +73,8 @@ func handle_gravity(_delta : float) -> void:
 		if has_started_gliding:
 			is_currently_gliding = true
 			velocity = Vector3.ZERO
-			get_tree().create_timer(player_settings.glide_duration_in_seconds).timeout.connect(func():
-				can_glide_flag = false
-				)
+			glide_timer.start()
+			glide_bar.show()
 			has_started_gliding = false
 		target_gravity = gravity * player_settings.glide_hover_amm
 		velocity.y = -target_gravity
@@ -85,7 +90,6 @@ func handle_jump(_delta : float) -> void:
 		velocity += Vector3.UP * jump_velocity
 		has_started_gliding = true
 
-
 func handle_movement() -> void:
 	var input_dir := calculate_local_input()
 	var target_velocity := input_dir * (player_settings.glide_speed if is_currently_gliding else player_settings.movement_speed)
@@ -94,6 +98,16 @@ func handle_movement() -> void:
 		velocity = lerp(velocity, target_velocity, player_settings.ground_acceleration)
 	else:
 		velocity = lerp(velocity, Vector3(0, velocity.y, 0), player_settings.ground_decceleration)
+
+func _on_glide_timer_timeout() -> void:
+	can_glide_flag = false
+	glide_bar.hide()
+
+func update_glide_bar() -> void:
+	if glide_bar.visible && is_on_floor():
+		glide_bar.hide()
+	if not glide_timer.is_stopped():
+		glide_bar.value = glide_timer.time_left
 
 func on_death() -> void:
 	# TODO: Death animation & more

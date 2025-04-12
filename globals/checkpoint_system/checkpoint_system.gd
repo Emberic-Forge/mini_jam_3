@@ -5,7 +5,6 @@ var last_checkpoint_position: Vector3 = Vector3.ZERO
 var collectible_count: int = 0:
 	set(value):
 		collectible_count = value
-		print("test")
 		SignalBus.collectible_count_changed.emit()
 var collectible_max: int
 var collectibles: Array[Collectible]
