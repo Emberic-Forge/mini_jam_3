@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://6fti23coeixd" path="res://player/scripts/player_controller.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://bq3c5lmxgqy64" path="res://player/camera/scripts/camera_controller.gd" id="3_g1dw6"]
-[ext_resource type="Resource" uid="uid://cgkmf4w3a6ida" path="res://player/settings/player.tres" id="3_yw30f"]
+[ext_resource type="Resource" uid="uid://dh4fy2fmpcy3p" path="res://player/settings/player.tres" id="3_yw30f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rkbax"]
 
@@ -32,7 +32,7 @@ corner_radius_bottom_left = 4
 [node name="camera" type="Camera3D" parent="."]
 script = ExtResource("3_g1dw6")
 
-[node name="avatar" type="CharacterBody3D" parent="." node_paths=PackedStringArray("camera")]
+[node name="avatar" type="CharacterBody3D" parent="." node_paths=PackedStringArray("camera") groups=["Player"]]
 collision_layer = 2
 script = ExtResource("1_oul6g")
 player_settings = ExtResource("3_yw30f")

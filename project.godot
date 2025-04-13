@@ -32,6 +32,10 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
 
+[global_group]
+
+Player=""
+
 [input]
 
 ui_select={
@@ -69,6 +73,7 @@ jump={
 [layer_names]
 
 3d_physics/layer_1="World"
+3d_physics/layer_2="Player"
 
 [rendering]
 

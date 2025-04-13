@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dhogkq4bdnbro"]
+
+[ext_resource type="Texture2D" uid="uid://btp18x2fa5s7a" path="res://settings/assets/buttonLong_blue_pressed.png" id="1_coeau"]
+
+[resource]
+texture = ExtResource("1_coeau")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0

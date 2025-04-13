@@ -1,3 +1,3 @@
 extends Node
 
-var player_ref: Node
+var player_ref: Node3D

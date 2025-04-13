@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cuwf70so7f8gr"]
+
+[ext_resource type="Texture2D" uid="uid://dmceee11n6gr1" path="res://settings/assets/panelInset_beigeLight.png" id="1_tkd33"]
+
+[resource]
+texture = ExtResource("1_tkd33")
+texture_margin_left = 6.65938
+texture_margin_right = 53.6256
+texture_margin_bottom = 31.8949
+region_rect = Rect2(1, 24.7504, 92, 69.2496)
