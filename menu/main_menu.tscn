@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvuj7m77rrgl1"]
+[gd_scene load_steps=8 format=3 uid="uid://cvuj7m77rrgl1"]
 
 [ext_resource type="LabelSettings" uid="uid://cyqs1t656hh6s" path="res://settings/labels/title_label_settings.tres" id="1_1x3cv"]
 [ext_resource type="Script" uid="uid://bmrjolcbtvvuu" path="res://menu/scripts/main_menu.gd" id="1_s8mfa"]
 [ext_resource type="Script" uid="uid://7hgxiepjce5d" path="res://menu/components/scripts/buttons/scene_loader.gd" id="2_1x3cv"]
+[ext_resource type="Theme" uid="uid://by25sgm60o7dh" path="res://settings/ui_theme.tres" id="3_0tw43"]
 [ext_resource type="Script" uid="uid://cke1qt0xbafmk" path="res://menu/components/scripts/buttons/open_menu.gd" id="3_jc45y"]
 [ext_resource type="PackedScene" uid="uid://cwxycxpmoxmmb" path="res://menu/options/options_menu.tscn" id="4_jc45y"]
 [ext_resource type="Script" uid="uid://dec1cq7fye0a2" path="res://menu/components/scripts/buttons/quit.gd" id="4_s8mfa"]
@@ -26,6 +27,7 @@ offset_right = 41.5
 offset_bottom = 78.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_0tw43")
 
 [node name="title" type="Label" parent="order"]
 texture_filter = 1

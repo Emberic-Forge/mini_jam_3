@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b300qv8pwgywm"]
+
+[ext_resource type="PackedScene" uid="uid://ca4aaulm26671" path="res://game/level/assets/kenney_graveyard-kit/Models/GLB format/bench-damaged.glb" id="1_re5og"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q02kh"]
+size = Vector3(0.626465, 0.52356, 0.355347)
+
+[node name="bench-damaged" type="Node3D"]
+
+[node name="bench-damaged2" parent="." instance=ExtResource("1_re5og")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="bench-damaged2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bench-damaged2/StaticBody3D"]
+transform = Transform3D(0.808748, 0.539211, 0.2349, -0.561385, 0.826821, 0.0348591, -0.175424, -0.160062, 0.971394, -0.180564, 0.155504, 0.0144806)
+shape = SubResource("BoxShape3D_q02kh")

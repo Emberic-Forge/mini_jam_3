@@ -1,5 +1,40 @@
-[gd_scene format=3 uid="uid://pb5i2i22xbjx"]
+[gd_scene load_steps=2 format=3 uid="uid://pb5i2i22xbjx"]
+
+[ext_resource type="Script" uid="uid://c8ika4hbw223p" path="res://menu/components/scripts/sensitivity_slider.gd" id="1_g51uj"]
 
 [node name="Graphics" type="VBoxContainer"]
-visible = false
 metadata/_tab_index = 2
+
+[node name="margin" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="music_settings" type="VBoxContainer" parent="margin"]
+layout_mode = 2
+
+[node name="sensitivity" type="HBoxContainer" parent="margin/music_settings"]
+layout_mode = 2
+
+[node name="entry_name" type="Label" parent="margin/music_settings/sensitivity"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+text = "Sensitivity"
+vertical_alignment = 1
+
+[node name="SensitivitySlider" type="HSlider" parent="margin/music_settings/sensitivity"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 0.05
+max_value = 0.8
+step = 0.01
+value = 0.5
+script = ExtResource("1_g51uj")
+metadata/_custom_type_script = "uid://c8ika4hbw223p"
+
+[node name="Label" type="Label" parent="margin/music_settings"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Decrease the sensitivity if there is strange camera behavior due to high camera speed."

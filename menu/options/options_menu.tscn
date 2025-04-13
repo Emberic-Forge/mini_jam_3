@@ -1,11 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwxycxpmoxmmb"]
+[gd_scene load_steps=10 format=3 uid="uid://cwxycxpmoxmmb"]
 
 [ext_resource type="Material" uid="uid://bxrh406r8e7x8" path="res://menu/materials/blur_material.tres" id="1_52hlk"]
 [ext_resource type="LabelSettings" uid="uid://cyqs1t656hh6s" path="res://settings/labels/title_label_settings.tres" id="1_ptfkf"]
 [ext_resource type="Theme" uid="uid://by25sgm60o7dh" path="res://settings/ui_theme.tres" id="1_w63va"]
+[ext_resource type="Texture2D" uid="uid://dmceee11n6gr1" path="res://settings/assets/panelInset_beigeLight.png" id="2_ultlk"]
 [ext_resource type="PackedScene" uid="uid://cghft0kmwwi7y" path="res://menu/options/audio.tscn" id="4_h1dxb"]
+[ext_resource type="PackedScene" uid="uid://pb5i2i22xbjx" path="res://menu/options/graphics.tscn" id="4_t1fao"]
 [ext_resource type="Script" uid="uid://7if65bxcuux0" path="res://menu/components/scripts/buttons/back.gd" id="5_52hlk"]
 [ext_resource type="PackedScene" uid="uid://chmsafdhygtym" path="res://menu/options/controls/controls.tscn" id="5_h1dxb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3ao27"]
+texture = ExtResource("2_ultlk")
+region_rect = Rect2(1.83495, 2.19618, 88.6364, 90.5024)
 
 [node name="options_menu" type="CanvasLayer"]
 layer = 5
@@ -17,6 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_3ao27")
 
 [node name="order" type="VBoxContainer" parent="."]
 anchors_preset = 8
@@ -49,15 +56,15 @@ layout_mode = 2
 
 [node name="tab" type="TabContainer" parent="order/body/margin"]
 layout_mode = 2
-current_tab = 1
+current_tab = 0
 all_tabs_in_front = true
 
-[node name="Graphics" type="VBoxContainer" parent="order/body/margin/tab"]
-visible = false
+[node name="Graphics" parent="order/body/margin/tab" instance=ExtResource("4_t1fao")]
 layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="Audio" parent="order/body/margin/tab" instance=ExtResource("4_h1dxb")]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
