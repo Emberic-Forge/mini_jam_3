@@ -1,12 +1,42 @@
-[gd_scene load_steps=7 format=3 uid="uid://dup03vjpyl5w0"]
+[gd_scene load_steps=14 format=3 uid="uid://dup03vjpyl5w0"]
 
 [ext_resource type="Script" uid="uid://6fti23coeixd" path="res://player/scripts/player_controller.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://bq3c5lmxgqy64" path="res://player/camera/scripts/camera_controller.gd" id="3_g1dw6"]
 [ext_resource type="Resource" uid="uid://vd81yh7pwwv6" path="res://player/settings/player.tres" id="3_yw30f"]
+[ext_resource type="PackedScene" uid="uid://txqxu2rsuniu" path="res://player/models/player_model.tscn" id="4_yw30f"]
+[ext_resource type="Script" uid="uid://dc75fn7enqrxf" path="res://player/scripts/player_animator.gd" id="5_qjkh3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rkbax"]
+radius = 0.818875
+height = 3.22569
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_rkbax"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yw30f"]
+animation = &"glide"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qjkh3"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g6k8r"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_boad6"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_rgyib"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_hg6s5"]
+graph_offset = Vector2(-567.042, 77.8224)
+nodes/Glide/node = SubResource("AnimationNodeAnimation_yw30f")
+nodes/Glide/position = Vector2(220, 400)
+nodes/Idle/node = SubResource("AnimationNodeAnimation_qjkh3")
+nodes/Idle/position = Vector2(-160, 180)
+nodes/Walk/node = SubResource("AnimationNodeAnimation_g6k8r")
+nodes/Walk/position = Vector2(-20, 340)
+nodes/glide_blend/node = SubResource("AnimationNodeBlend2_boad6")
+nodes/glide_blend/position = Vector2(400, 140)
+nodes/output/position = Vector2(600, 160)
+nodes/walk_blend/node = SubResource("AnimationNodeBlend2_rgyib")
+nodes/walk_blend/position = Vector2(160, 160)
+node_connections = [&"glide_blend", 0, &"walk_blend", &"glide_blend", 1, &"Glide", &"output", 0, &"glide_blend", &"walk_blend", 0, &"Idle", &"walk_blend", 1, &"Walk"]
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_g1dw6"]
 
@@ -22,13 +52,68 @@ player_settings = ExtResource("3_yw30f")
 camera = NodePath("../camera")
 
 [node name="shape" type="CollisionShape3D" parent="avatar"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.870437, -1.01985)
 shape = SubResource("CapsuleShape3D_rkbax")
 
-[node name="temp" type="MeshInstance3D" parent="avatar"]
-mesh = SubResource("CapsuleMesh_rkbax")
+[node name="player" parent="avatar" instance=ExtResource("4_yw30f")]
+
+[node name="Skeleton3D" parent="avatar/player/Armature" index="0"]
+bones/1/rotation = Quaternion(0.319802, 0.698062, 0.632314, -0.103026)
+bones/3/rotation = Quaternion(0.314766, 0.70231, 0.6308, -0.098863)
+bones/5/rotation = Quaternion(0.323549, 0.693262, 0.635837, -0.102057)
+bones/7/position = Vector3(0.143031, 0.507524, -0.433017)
+bones/7/rotation = Quaternion(0.612355, 0.326391, 0.702745, -0.156973)
+bones/9/position = Vector3(0.146784, 1.35669, -0.448023)
+bones/9/rotation = Quaternion(0.64623, 0.344704, 0.641732, -0.227476)
+bones/11/rotation = Quaternion(-0.319236, 0.698169, 0.632569, 0.102498)
+bones/13/rotation = Quaternion(-0.31129, 0.702865, 0.632477, 0.0951419)
+bones/15/rotation = Quaternion(-0.320139, 0.694476, 0.636731, 0.098935)
+bones/17/position = Vector3(-0.143531, 0.507544, -0.432782)
+bones/17/rotation = Quaternion(0.611757, -0.326562, -0.703235, -0.156754)
+bones/19/position = Vector3(-0.147191, 1.35671, -0.447782)
+bones/19/rotation = Quaternion(0.645681, -0.344936, -0.642245, -0.227239)
+
+[node name="limb_a_l" parent="avatar/player/Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, -1.04308e-07, 2.98023e-08, 1.49012e-07, 1, 0, -4.47035e-08, -2.98023e-08, 1, -1.49012e-08, 2.38419e-07, 1.78814e-07)
+
+[node name="limb_b_l" parent="avatar/player/Armature/Skeleton3D" index="1"]
+transform = Transform3D(1, -6.33299e-08, -2.98023e-07, -1.2666e-07, 1, -4.47035e-08, 2.83122e-07, 4.47035e-08, 1, -1.3411e-07, 5.96046e-08, 1.19209e-07)
+
+[node name="limb_c_l" parent="avatar/player/Armature/Skeleton3D" index="2"]
+transform = Transform3D(1, -8.56817e-08, 0, -2.30968e-07, 1, 1.19209e-07, 0, -2.08616e-07, 1, 1.78814e-07, 1.19209e-07, 2.98023e-07)
+
+[node name="wing_b_l" parent="avatar/player/Armature/Skeleton3D" index="3"]
+transform = Transform3D(0.901, 0.42651, -0.0792899, -0.427858, 0.903846, 4.47035e-08, 0.0716659, 0.0339246, 0.996851, -0.595601, 0.183793, -0.0559762)
+
+[node name="wing_a_l" parent="avatar/player/Armature/Skeleton3D" index="4"]
+transform = Transform3D(0.798534, 0.267863, 0.539066, -0.17147, 0.959654, -0.22285, -0.57701, 0.0855196, 0.812247, -0.29035, 0.0836796, -0.0300005)
+
+[node name="limb_a_r" parent="avatar/player/Armature/Skeleton3D" index="5"]
+transform = Transform3D(1, 1.60187e-07, -1.19209e-07, -4.09782e-08, 1, 1.19209e-07, 1.04308e-07, -8.9407e-08, 1, -8.9407e-08, 4.17233e-07, 4.32134e-07)
+
+[node name="limb_b_r" parent="avatar/player/Armature/Skeleton3D" index="6"]
+transform = Transform3D(1, 1.04308e-07, 1.04308e-07, 3.7998e-07, 1, 4.47035e-08, -3.27826e-07, -5.96046e-08, 1, -1.63913e-07, 5.96046e-08, 3.57628e-07)
+
+[node name="limb_c_r" parent="avatar/player/Armature/Skeleton3D" index="7"]
+transform = Transform3D(1, 4.84288e-08, 0, 8.19564e-08, 1, 2.08616e-07, 5.96046e-08, -4.47035e-08, 1, 2.68221e-07, 3.57628e-07, -1.19209e-07)
+
+[node name="wing_b_r" parent="avatar/player/Armature/Skeleton3D" index="8"]
+transform = Transform3D(0.901, -0.426511, 0.0792901, 0.427858, 0.903846, 1.09896e-07, -0.0716661, 0.0339248, 0.996852, 0.595601, 0.183793, -0.0559764)
+
+[node name="wing_a_r" parent="avatar/player/Armature/Skeleton3D" index="9"]
+transform = Transform3D(0.798534, -0.267863, -0.539066, 0.17147, 0.959654, -0.22285, 0.577011, 0.0855197, 0.812247, 0.290351, 0.0836792, -0.03)
+
+[node name="AnimationTree" type="AnimationTree" parent="avatar/player"]
+tree_root = SubResource("AnimationNodeBlendTree_hg6s5")
+anim_player = NodePath("../AnimationPlayer")
+parameters/glide_blend/blend_amount = 0
+parameters/walk_blend/blend_amount = 0
+script = ExtResource("5_qjkh3")
 
 [node name="arm" type="SpringArm3D" parent="avatar"]
 shape = SubResource("SeparationRayShape3D_g1dw6")
 spring_length = 10.0
 
 [node name="camera_anchor" type="Node3D" parent="avatar/arm"]
+
+[editable path="avatar/player"]

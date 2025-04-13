@@ -8,6 +8,8 @@ extends CharacterBody3D
 
 @onready var camera_base : Node3D = $arm
 @onready var camera_anchor : Node3D = $arm/camera_anchor
+@onready var animation_tree : AnimationTree = $player/AnimationTree
+
 
 var camera_input_direction : Vector2
 
@@ -16,6 +18,7 @@ var has_started_gliding : bool
 var is_currently_gliding : bool
 
 func _ready() -> void:
+	animation_tree.init(self)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 	camera.set_camera_anchor(camera_anchor)
