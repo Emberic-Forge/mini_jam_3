@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cy5v66tivsswu"]
+[gd_scene load_steps=16 format=3 uid="uid://cy5v66tivsswu"]
 
 [ext_resource type="PackedScene" uid="uid://dup03vjpyl5w0" path="res://player/player.tscn" id="1_3gmvx"]
 [ext_resource type="Script" uid="uid://keriv7x1j30r" path="res://testing/scripts/feature_gym.gd" id="1_ivdn3"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bedwo7aclrpxj" path="res://game/hazards/hazard.tscn" id="6_6ujj0"]
 [ext_resource type="PackedScene" uid="uid://clxr7qsv31hsl" path="res://hud/hud.tscn" id="7_6ujj0"]
 [ext_resource type="PackedScene" uid="uid://colanmtljo60l" path="res://game/frog/Frog.tscn" id="8_smvkj"]
+[ext_resource type="PackedScene" uid="uid://cphol0x7ilbec" path="res://game/level/assets/scenes/platformer-kit/block_grass.tscn" id="9_8cc4x"]
+[ext_resource type="PackedScene" uid="uid://cj2585qbfcy8l" path="res://game/level/assets/scenes/platformer-kit/block_grass_large_tall.tscn" id="10_j7gri"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3gmvx"]
 
@@ -88,3 +90,9 @@ mesh = SubResource("BoxMesh_vntb0")
 
 [node name="Frog" parent="." instance=ExtResource("8_smvkj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.79799, 0.52628, 5.11022)
+
+[node name="block-grass" parent="." instance=ExtResource("9_8cc4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95078, -1.66325, 8.65306)
+
+[node name="block-grass-large-tall" parent="." instance=ExtResource("10_j7gri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9736, -1.66325, 10.2036)

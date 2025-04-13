@@ -26,7 +26,7 @@ func _ready() -> void:
 	camera.set_focus_point(self)
 	
 	glide_timer.wait_time = player_settings.glide_duration_in_seconds
-
+	Global.player_ref = self
 	SignalBus.death.connect(on_death)
 
 func _unhandled_input(event : InputEvent) -> void:
