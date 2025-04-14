@@ -46,6 +46,7 @@ shadow_enabled = true
 environment = SubResource("Environment_ivdn3")
 
 [node name="player" parent="." instance=ExtResource("1_3gmvx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.36385, 0)
 
 [node name="pause_menu" parent="." instance=ExtResource("3_vmymm")]
 

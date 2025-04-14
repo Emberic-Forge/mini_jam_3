@@ -7,16 +7,16 @@ extends Node3D
 func _physics_process(_delta: float) -> void:
 	if not Global.player_ref:
 		return
-	
+
 	# Raycast to Player position
 	var to = Global.player_ref.global_position
 	raycast.target_position = (to - raycast.global_position) * 100
-	
+
 	var collider: Node3D = raycast.get_collider()
 	if not collider:
 		return
-	
-	# Check if raycast collides with Player. 
+
+	# Check if raycast collides with Player.
 	# If yes, start timer, otherwise stop timer.
 	if collider.is_in_group("Player"):
 		if death_timer.is_stopped():
@@ -26,6 +26,7 @@ func _physics_process(_delta: float) -> void:
 	else:
 		death_timer.stop()
 		timer_label.hide()
+
 
 
 func _on_death_timer_timeout() -> void:

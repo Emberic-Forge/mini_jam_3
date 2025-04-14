@@ -4,15 +4,15 @@
 
 [resource]
 script = ExtResource("1_ch3ay")
-movement_speed = 5.0
-jump_height = 1.5
-ground_acceleration = 1.0
-ground_decceleration = 1.0
-glide_speed = 5.0
-glide_duration_in_seconds = 5.0
+movement_speed = 15.0
+jump_height = 3.0
+ground_acceleration = 2.5
+ground_decceleration = 5.0
+glide_speed = 15.0
+glide_duration_in_seconds = 0.8
 glide_hover_amm = 0.15
 fall_multiplier = 2.5
-fall_detection_range = -0.1
+fall_detection_range = -0.2
 move_left_action = "move_left"
 move_forward_action = "move_up"
 move_right_action = "move_right"

@@ -8,39 +8,26 @@ var model : Node3D
 
 var walk_blend : float
 var glide_blend : float
-var target_velocity : Vector3
+var target_motion_dir : Vector3
 
 func init(_player : CharacterBody3D) -> void:
 	player = _player
-	model = get_parent()
+	model = get_parent().get_parent()
 
 func _process(_delta : float) -> void:
 
 
 	handle_walk_anim(_delta)
-	if !handle_glide_anim(_delta):
-		target_velocity = lerp(target_velocity, player.velocity, blend_speed * _delta)
-	handle_model_rotation_towards_velocity()
+	handle_glide_anim(_delta)
+	handle_model_rotation_towards_velocity(_delta)
 
 
-func handle_glide_anim(_delta : float) -> bool:
+func handle_glide_anim(_delta : float) -> void:
 	var velocity = player.velocity
-	var is_gliding = player.is_currently_gliding
-	var gravity_dir : Vector3 = ProjectSettings.get_setting("physics/3d/default_gravity_vector")
+	var blend_val := 1.0 if not player.is_on_floor() else 0.0
 
-	var dot_prod = velocity.dot(gravity_dir)
-	var blend_val := 0.0
-
-	if is_gliding && dot_prod > 0.0:
-		blend_val = 1.0
-		var horizontal_vel = Vector3(velocity.x, 0, velocity.z).normalized()
-		target_velocity = lerp(target_velocity, horizontal_vel, model_rotation_speed * _delta)
-
-
-	glide_blend = lerp(glide_blend, blend_val, _delta)
+	glide_blend = lerp(glide_blend, blend_val, blend_speed * _delta)
 	self["parameters/glide_blend/blend_amount"] = glide_blend
-
-	return is_gliding && dot_prod > 0.0
 
 func handle_walk_anim(_delta : float) -> void:
 	var velocity = player.velocity
@@ -49,7 +36,13 @@ func handle_walk_anim(_delta : float) -> void:
 	walk_blend = lerp(walk_blend, blend_val, blend_speed * _delta)
 	self["parameters/walk_blend/blend_amount"] = walk_blend
 
-func handle_model_rotation_towards_velocity() -> void:
-	var velocity = player.velocity
-	if velocity.length() > 0:
-		model.look_at(model.global_position + target_velocity,player.up_direction, true)
+func handle_model_rotation_towards_velocity(_delta : float) -> void:
+	var motion_dir = player.velocity.normalized()
+	if motion_dir.length() > 0.1 && abs(motion_dir.dot(Vector3.UP)) < 0.9:
+		target_motion_dir = lerp(target_motion_dir, motion_dir, _delta * model_rotation_speed)
+	else:
+		target_motion_dir = lerp(target_motion_dir, Vector3(motion_dir.x, 0, motion_dir.z), _delta * model_rotation_speed)
+		target_motion_dir.y = 0
+
+	if target_motion_dir.length() > 0.1:
+		model.look_at(model.global_position + target_motion_dir, Vector3.UP, true)

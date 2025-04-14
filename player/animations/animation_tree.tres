@@ -1,0 +1,29 @@
+[gd_resource type="AnimationNodeBlendTree" load_steps=6 format=3 uid="uid://cjxjlxx0xlo0s"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t5awy"]
+animation = &"glide"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_1yov5"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r3adj"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_in2jm"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_0xha0"]
+
+[resource]
+graph_offset = Vector2(-811.968, -125.136)
+nodes/glide/node = SubResource("AnimationNodeAnimation_t5awy")
+nodes/glide/position = Vector2(-280, 420)
+nodes/glide_blend/node = SubResource("AnimationNodeBlend2_1yov5")
+nodes/glide_blend/position = Vector2(140, 100)
+nodes/idle/node = SubResource("AnimationNodeAnimation_r3adj")
+nodes/idle/position = Vector2(-280, 100)
+nodes/output/position = Vector2(320, 100)
+nodes/walk/node = SubResource("AnimationNodeAnimation_in2jm")
+nodes/walk/position = Vector2(-280, 260)
+nodes/walk_blend/node = SubResource("AnimationNodeBlend2_0xha0")
+nodes/walk_blend/position = Vector2(-60, 80)
+node_connections = [&"glide_blend", 0, &"walk_blend", &"glide_blend", 1, &"glide", &"output", 0, &"glide_blend", &"walk_blend", 0, &"idle", &"walk_blend", 1, &"walk"]

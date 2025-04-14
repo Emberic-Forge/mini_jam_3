@@ -3,11 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://bpi72atn7hiju" path="res://game/frog/froggo.png" id="1_haw3j"]
 [ext_resource type="Script" uid="uid://b85cijqadt8hl" path="res://game/frog/frog.gd" id="1_t2e8q"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Frog_Sentry" type="Node3D"]
 script = ExtResource("1_t2e8q")
 
 [node name="Frog" type="Sprite3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 billboard = 2
 texture = ExtResource("1_haw3j")
 
