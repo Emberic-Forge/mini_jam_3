@@ -1,10 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://colanmtljo60l"]
+[gd_scene load_steps=7 format=3 uid="uid://colanmtljo60l"]
 
 [ext_resource type="Texture2D" uid="uid://bpi72atn7hiju" path="res://game/frog/froggo.png" id="1_haw3j"]
 [ext_resource type="Script" uid="uid://b85cijqadt8hl" path="res://game/frog/frog.gd" id="1_t2e8q"]
 
-[node name="Frog_Sentry" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2e8q"]
+albedo_color = Color(1, 0.266667, 0.529412, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oo3aj"]
+material = SubResource("StandardMaterial3D_t2e8q")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ogtr4"]
+albedo_color = Color(1, 0.268588, 0.528726, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_sxduo"]
+material = SubResource("StandardMaterial3D_ogtr4")
+
+[node name="Frog_Sentry" type="Node3D" node_paths=PackedStringArray("tongue")]
 script = ExtResource("1_t2e8q")
+tongue = NodePath("Tongue")
 
 [node name="Frog" type="Sprite3D" parent="."]
 billboard = 2
@@ -32,5 +45,15 @@ offset_right = 471.0
 offset_bottom = -195.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Tongue" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Tongue"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_oo3aj")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Tongue"]
+transform = Transform3D(1.53354, 0, 0, 0, 1.53354, 0, 0, 0, 1.53354, 0, 0, 0.992947)
+mesh = SubResource("SphereMesh_sxduo")
 
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

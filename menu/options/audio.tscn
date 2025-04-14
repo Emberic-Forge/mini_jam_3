@@ -28,6 +28,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 script = ExtResource("1_khl11")
+bus_name = "Master"
 metadata/_custom_type_script = "uid://6lywy6x148wo"
 
 [node name="volume_b" type="HBoxContainer" parent="margin/music_settings"]
@@ -47,6 +48,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 script = ExtResource("1_khl11")
+bus_name = "Music"
 metadata/_custom_type_script = "uid://6lywy6x148wo"
 
 [node name="volume_c" type="HBoxContainer" parent="margin/music_settings"]
@@ -65,5 +67,8 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
 script = ExtResource("1_khl11")
+bus_name = "SFX"
 metadata/_custom_type_script = "uid://6lywy6x148wo"

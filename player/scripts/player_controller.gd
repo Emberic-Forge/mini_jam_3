@@ -51,7 +51,7 @@ func make_camera_focus(node_to_focus : Node3D) -> void:
 	var desired_offset = dir * CAM_LENGTH_OFFSET
 	var offset = dir * min(CAM_LENGTH_OFFSET, camera_collision_length(desired_offset, CAM_LENGTH_OFFSET))
 
-	camera.move_camera_towards_node(self,false, offset)
+	#camera.move_camera_towards_node(self,false, offset)
 	camera.override_camera()
 
 func camera_collision_length(dir : Vector3, default : float = 5.0) -> float:

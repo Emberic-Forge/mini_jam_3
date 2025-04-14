@@ -1,8 +1,22 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://by25sgm60o7dh"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://by25sgm60o7dh"]
 
 [ext_resource type="StyleBox" uid="uid://dbhhpyqn3551f" path="res://menu/styles/button_normal.tres" id="1_or7nl"]
 [ext_resource type="StyleBox" uid="uid://dhogkq4bdnbro" path="res://menu/styles/button_pressed.tres" id="2_6vltx"]
 [ext_resource type="Texture2D" uid="uid://b887iw2mqvtwi" path="res://settings/assets/panel_blue.png" id="3_6vltx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6vltx"]
+texture = ExtResource("3_6vltx")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nxs2n"]
+texture = ExtResource("3_6vltx")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jij3y"]
 texture = ExtResource("3_6vltx")
@@ -23,6 +37,8 @@ MarginContainer/constants/margin_bottom = 4
 MarginContainer/constants/margin_left = 4
 MarginContainer/constants/margin_right = 4
 MarginContainer/constants/margin_top = 4
+Panel/styles/panel = SubResource("StyleBoxTexture_6vltx")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_nxs2n")
 TabContainer/colors/font_selected_color = Color(0, 0, 0, 1)
 TabContainer/colors/font_unselected_color = Color(0.195545, 0.195545, 0.195545, 1)
 TabContainer/styles/panel = SubResource("StyleBoxTexture_jij3y")

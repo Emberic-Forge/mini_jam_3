@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dl8320r05shd4" path="res://game/checkpoints/checkpoint.gd" id="1_1mk51"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iglvo"]
+size = Vector3(13.6019, 11.5027, 11.9531)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1mk51"]
 albedo_color = Color(0.0941176, 1, 0.298039, 1)

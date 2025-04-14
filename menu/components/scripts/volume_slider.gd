@@ -12,6 +12,9 @@ func _ready() -> void:
 	assert(indx != -1, "Invalid bus '%s' at '%s'" % [bus_name, str(self.get_path())])
 	value = AudioServer.get_bus_volume_linear(indx)
 	value_changed.connect(_on_volume_mod)
+	step = 0.01
+	max_value = 1.0
+	min_value = 0.0
 
 func _on_volume_mod(value : float) -> void:
 	AudioServer.set_bus_volume_linear(indx, value)

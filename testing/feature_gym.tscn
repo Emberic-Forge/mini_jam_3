@@ -90,7 +90,7 @@ mesh = SubResource("BoxMesh_vntb0")
 [node name="HUD" parent="." instance=ExtResource("7_6ujj0")]
 
 [node name="Frog" parent="." instance=ExtResource("8_smvkj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.79799, 0.52628, 5.11022)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.79799, 5.95075, 5.11022)
 
 [node name="block-grass" parent="." instance=ExtResource("9_8cc4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95078, -1.66325, 8.65306)

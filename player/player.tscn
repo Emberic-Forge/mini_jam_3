@@ -43,7 +43,7 @@ player_settings = ExtResource("3_yw30f")
 camera = NodePath("../camera")
 
 [node name="shape" type="CollisionShape3D" parent="avatar"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.0988091, 0.342933)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.098805, 0.342932)
 shape = SubResource("CapsuleShape3D_g6k8r")
 
 [node name="model" type="Node3D" parent="avatar"]
@@ -97,6 +97,9 @@ transform = Transform3D(0.901, -0.426511, 0.0792901, 0.427858, 0.903846, 1.09896
 
 [node name="wing_a_r" parent="avatar/model/player/Armature/Skeleton3D" index="9"]
 transform = Transform3D(0.798534, -0.267863, -0.539066, 0.17147, 0.959654, -0.22285, 0.577011, 0.0855197, 0.812247, 0.290351, 0.0836792, -0.03)
+
+[node name="body" parent="avatar/model/player/Armature/Skeleton3D" index="10"]
+transform = Transform3D(1, -1.74623e-10, 1.61547e-08, 5.82077e-11, 1, 6.23986e-08, -1.60996e-08, 6.22822e-08, 1, 1.79862e-08, 1.19209e-07, 2.38419e-07)
 
 [node name="AnimationTree" type="AnimationTree" parent="avatar/model/player"]
 tree_root = ExtResource("5_g6k8r")
